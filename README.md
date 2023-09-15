@@ -1,2 +1,10 @@
 # codeigniter-simple-project
-Codeigniter Simple Project using MYSQL Database, Docker, Dockercompose
+Codeigniter Simple Project
+
+#Stack
+PHP, MySQL, Docker, Docker-compose
+
+#Feature
+->Suplier : CRUD Master DATA, Report
+->Courier : Pickup Order, Sending Order to Customer
+->Customer : Order, View transaction, Inventory
