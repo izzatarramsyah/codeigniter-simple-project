@@ -1,7 +1,6 @@
 # codeigniter-simple-project
 Codeigniter Simple Project
 
-#Stack
 PHP (CI4), MySQL, Docker, Docker-compose
 
 #Feature
