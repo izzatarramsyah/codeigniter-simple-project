@@ -32,7 +32,6 @@ class PickUpHistoryController extends BaseController  {
     public function updatePickupStatus () {
         $id = $this->request->getPost('id');
         $status = $this->request->getPost('status');
-        $notes = $this->request->getPost('notes');
         $dataUser = array_values(session("dataUser"));
         $dt = date("Y-m-d H:i:s");
         $pickUpModel = new PickUpModel();
@@ -47,7 +46,7 @@ class PickUpHistoryController extends BaseController  {
         $detail = [
             "pick_up_id" => $id,
             "sequence" => (intval($seq[0]->pick_up_id)+1),
-            "status" => $notes,
+            "status" => $status,
             "created_by" => $dataUser[0]["username"]
         ];
         $pickUpDetailModel->savePickUpDetail($detail);

@@ -61,22 +61,14 @@
               </div> <?php if($validation->getError('password')) {?> <div class='alert alert-danger mt-2'> <?= $error = $validation->getError('password'); ?> </div> <?php }?>
             </div>
             <div class="row">
-              <div class="col-8">
-                <div class="icheck-primary">
-                  <input type="checkbox" id="agreeTerms" name="terms" value="agree">
-                  <label for="agreeTerms"> I agree to the <a href="#">terms</a>
-                  </label>
-                </div>
-              </div>
-              <!-- /.col -->
-              <div class="col-4">
+              <div class="col-12">
                 <button type="submit" class="btn btn-primary btn-block">Register</button>
               </div>
               <!-- /.col -->
             </div>
           </form>
           <p class="mt-4 text-center">
-            <a href="<?= base_url('/login') ?>" class="text-center">I already have a membership</a>
+            <a href="<?= base_url('/login') ?>" class="text-center">I already have a account</a>
           </p>
         </div>
         <!-- /.form-box -->

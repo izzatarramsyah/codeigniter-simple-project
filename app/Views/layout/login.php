@@ -51,18 +51,8 @@
                 </div>
               </div> <?php if($validation->getError('password')) {?> <div class='alert alert-danger mt-2'> <?= $error = $validation->getError('password'); ?> </div> <?php }?>
             </div>
-            <p class="mb-1">
-              <a href="forgot-password.html">I forgot my password</a>
-            </p>
             <div class="row">
-              <div class="col-8">
-                <div class="icheck-primary">
-                  <input type="checkbox" id="remember">
-                  <label for="remember"> Remember Me </label>
-                </div>
-              </div>
-              <!-- /.col -->
-              <div class="col-4">
+              <div class="col-12">
                 <button type="submit" class="btn btn-primary btn-block">Sign In</button>
               </div>
               <!-- /.col -->
@@ -70,7 +60,7 @@
           </form>
           <!-- /.social-auth-links -->
           <p class="mt-4 text-center">
-            <a href="<?= base_url('/register') ?>" class="text-center">Register a new membership</a>
+            <a href="<?= base_url('/register') ?>" class="text-center">Register a new Customer</a>
           </p>
         </div>
         <!-- /.login-card-body -->

@@ -47,7 +47,6 @@ class OrderProductController extends BaseController {
             $data = [
                 "user_id" => $dataUser[0]["id"],
                 "order_id" => $orderId,
-                "status" => "Waiting for Pick Up",
                 "created_by" => $dataUser[0]["username"],
                 "lastupd_by" => $dataUser[0]["username"],
             ];

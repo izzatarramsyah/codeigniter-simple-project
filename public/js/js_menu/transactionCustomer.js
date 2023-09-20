@@ -18,12 +18,16 @@ function getInfoTransactionCustomer() {
         tblListTransaction.clear();
         for (var index = 0; index < rows.length; index++) {
             var no = (index+1);
+            var btn = 'Waiting For Package Arrived';
+            if ( rows[index].status == 'ORDER RECEIVED' ) {
+              btn = `<button type="button" class="btn btn-success" onclick="openModalReceiveOreder('`+rows[index].order_id+`')">Order Received</button>`;
+            }
             tblListTransaction.row.add([
               no,
 			        `<a href="javascript:void(0);" onclick="openModalOrderDetail('`+rows[index].order_id+`') ">`+rows[index].order_id+`</a>`,
-              rows[index].status,
+              `<a href="javascript:void(0);" onclick="openModalPickupDetail('`+rows[index].pick_up_id+`') "> Detail </a>`,
               rows[index].created_dtm,
-              `<button type="button" class="btn btn-success" onclick="openModalReceiveOreder('`+rows[index].order_id+`')">Order Received</button>`
+              btn
             ]).draw(true);
         }
         tblListTransaction.draw();
@@ -40,7 +44,6 @@ function getInfoTransactionCustomer() {
 }
 
 function openModalReceiveOreder( orderId ){
-  debugger;
 	alert_confirmation(  'Are you sure want to update this order to received ? ' , function() {
 		 receiveOrder( orderId ) 
 	});

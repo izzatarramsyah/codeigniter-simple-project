@@ -73,7 +73,6 @@ $(".view-product").on("click", ".buyProduct", function() {
 });
 
 $(".view-product").on("click", ".addToCart", function() {
-    $("#loading").modal("show");
     var product_code = $(this).attr("data-code");
     var product_name = $(this).attr("data-name");
     var desc = $(this).attr("data-desc");
@@ -86,7 +85,6 @@ $(".view-product").on("click", ".addToCart", function() {
         dataType: "json",
         data: { item: item },
         success: function(response) {
-            $("#loading").modal("hide");
             if (response.status = 'success') {
                 displayHeaderCart();
                 toastr.success('Item has been added to cart');

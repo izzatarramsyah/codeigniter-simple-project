@@ -104,10 +104,10 @@
                 <thead>
                   <tr>
                     <th width="5%">No</th>
-                    <th width="20%">Order ID</th>
-                    <th width="20%">Status</th>
-                    <th width="20%">Transaction Date</th>
-                    <th width="5%">Action</th>
+                    <th width="15%">Order ID</th>
+                    <th width="15%">Status</th>
+                    <th width="15%">Transaction Date</th>
+                    <th width="20%">Action</th>
                   </tr>
                 </thead>
             </table>

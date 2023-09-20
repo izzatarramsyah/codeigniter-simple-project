@@ -144,7 +144,7 @@ class UserController extends BaseController
                 "username" => $username,
                 "password" => $passwordHash,
                 "email" => $email,
-                "balance" => 100000
+                "profile_id" => 2
             ];
             try {
                 $array = array(

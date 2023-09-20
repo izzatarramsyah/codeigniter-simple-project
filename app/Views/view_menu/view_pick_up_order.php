@@ -17,8 +17,8 @@
                 <tr>
                   <th width="5%">No</th>
                   <th width="20%">Order ID</th>
-                  <th width="20%">Date</th>
-                  <th width="5%">Action</th>
+                  <th width="15%">Date</th>
+                  <th width="15%">Action</th>
                 </tr>
               </thead>
             </table>

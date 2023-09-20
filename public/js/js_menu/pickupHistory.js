@@ -11,7 +11,7 @@
             var no = (index+1);
             var btn = '';
             if ( rows[index].status != 'Order Completed' ) {
-              btn = `<button type="button" class="btn btn-primary" onclick="openModalStatusPickup('`+rows[index].pick_up_id+`')">Edit</i></i></button>`;
+              btn = `<button type="button" class="btn btn-primary" onclick="openModalStatusPickup('`+rows[index].pick_up_id+`')">Action</i></i></button>`;
             }
             tblListPickUp.row.add([
                 no,
@@ -45,12 +45,10 @@
     $("#loading").modal("show");
     var id = $('#idPickUp').val();
     var status = $('#slc-status-pickup').val();
-    var notes = $('#inp-notes').val();
-    debugger;
     $.ajax({
       type: "POST",
       url: "updatePickupStatus",
-      data: { id : id, status : status, notes : notes },
+      data: { id : id, status : status },
       success: function (response) {
         $("#loading").modal("hide");
         alert_info(response.message, function() {

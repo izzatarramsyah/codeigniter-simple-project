@@ -14,7 +14,7 @@
                 no,
                 `<a href="javascript:void(0);" onclick="openModalOrderDetail('`+rows[index].order_id+`') ">`+rows[index].order_id+`</a>`,
                 rows[index].created_dtm,
-                `<button type="button" class="btn btn-primary" onclick="openModalPickUpOrder(`+rows[index].id+`, '`+rows[index].order_id+`')">Pick Order</button>`
+                `<button type="button" class="btn btn-success" onclick="openModalPickUpOrder(`+rows[index].id+`, '`+rows[index].order_id+`')">Pick Up Order</button>`
               ]).draw(true);
             } 
         }

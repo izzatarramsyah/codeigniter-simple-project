@@ -14,8 +14,7 @@ class OrderModel extends Model
 
     protected $allowedFields = [
         'user_id',
-        'order_id',
-        'status'
+        'order_id'
     ];
 
     public function saveOrder($data) {
@@ -25,18 +24,26 @@ class OrderModel extends Model
 
     public function getOrder($userId, $startDate, $endDate) {
         $builder = $this->db->table('tbl_order');
-        $builder->select('order_id, status, created_dtm, created_by');
+        $builder->select('tbl_order.order_id, 
+            tbl_product_out.pick_up_id,
+            tbl_order.created_dtm, 
+            tbl_order.created_by');
         $builder->where('user_id' , $userId);
-        $builder->where('DATE(created_dtm) BETWEEN "'. date('Y-m-d', strtotime($startDate)). '" and "'. date('Y-m-d', strtotime($endDate)).'"');
+        $builder->join('tbl_product_out', 'tbl_order.order_id = tbl_product_out.order_id');
+        $builder->where('DATE(tbl_order.created_dtm) BETWEEN "'. date('Y-m-d', strtotime($startDate)). '" and "'. date('Y-m-d', strtotime($endDate)).'"');
         $query = $builder->get();
         return $query->getResult();
     }
 
     public function getOrderByID($userId, $transactionId) {
         $builder = $this->db->table('tbl_order');
-        $builder->select('order_id, status, created_dtm, created_by');
-        $builder->where('user_id' , $userId);
-        $builder->where('order_id' , $transactionId);
+        $builder->select('tbl_order.order_id, 
+            tbl_product_out.pick_up_id,
+            tbl_order.created_dtm, 
+            tbl_order.created_by');
+        $builder->join('tbl_product_out', 'tbl_order.order_id = tbl_product_out.order_id');
+        $builder->where('tbl_order.user_id' , $userId);
+        $builder->where('tbl_order.order_id' , $transactionId);
         $query = $builder->get();
         return $query->getResult();
     }
@@ -77,7 +84,6 @@ class OrderModel extends Model
     public function getOrderRequest($startDate, $endDate) {
         $builder = $this->db->table('tbl_order');
         $builder->select('tbl_order.order_id, 
-                          tbl_order.status, 
                           tbl_order.created_dtm, 
                           tbl_user.username');
         $builder->join('tbl_user', 'tbl_user.id = tbl_order.user_id');

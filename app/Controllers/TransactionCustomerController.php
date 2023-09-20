@@ -21,6 +21,7 @@ class TransactionCustomerController extends BaseController
             $data['dataUser'] = array_values(session('dataUser'));
             $data["profileMenu"] = array_values(session("profileMenu"));
             return view('view_modal/modal_detail_order')
+                . view('view_modal/modal_detail_pickup')
                 .view('view_menu/view_transaction_customer', $data);
         }
     }
